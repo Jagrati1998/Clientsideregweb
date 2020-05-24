@@ -1,0 +1,75 @@
+
+<div class="row">
+  <div class="col s12 s12">
+    <div class="card light-green darken-1">
+      <div class="card-content white-text">
+        <div class="row"><h1>Welcome to Registration Portal</h1><hr/>
+          <div class="col s5">
+            <form #contactform="ngForm" (ngSubmit)="(contactform)">
+              <div class="row">
+                <div class="input-field col s9">
+                  <div class="card-content black-text">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="contactService.contact._id" />
+
+                  </div>
+                </div>
+
+              <div class="row">
+                <div class="input-field col s9">
+                  <input type="text" name="first_name" #name="ngModel" [(ngModel)]="contactService.contact.first_name" placeholder="Enter Your First Name" required />
+                 
+                    
+                </div>
+             
+
+                <div class="input-field col s9">
+                  <input type="text" name="last_name" #name="ngModel" [(ngModel)]="contactService.contact.last_name" placeholder="Enter Your Last Name" required />
+
+                </div>
+
+              </div>
+              
+              <div class="row">
+                <div class="input-field col s9">
+
+                  <input type="text" name="phone" #name="ngModel" [(ngModel)]="contactService.contact.phone" placeholder="Enter Your Phone Number" required />
+                </div>
+              </div>
+              
+                  <div class="row">
+                    <div class="input-field col s9">
+                      &nbsp;&nbsp; <button class="btn-btn-custom right" type="button" (click)="resetForm(contactform)">Reset</button><span></span>
+                      <button class="btn-btn-custom right" type="submit" [disabled]="!contactform.valid" (click)="onSubmit(contactform)">Submit</button>
+                    </div>
+                  </div>
+                </div>
+            </form>
+          </div>
+          <div class="col s7">
+            <table class="responsive-table highlight">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Contact Number</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tr *ngFor="let con of contactService.contacts">
+                <td>{{con.first_name}}</td>
+                <td>{{con.last_name}}</td>
+                <td>{{con.phone}}</td>
+                
+
+              </tr>
+
+            </table>
+            
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+  </div>
+
+    
